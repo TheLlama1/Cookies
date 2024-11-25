@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+ <div class="text-center">
+     <h1 class="display-4">Welcome</h1>
+
+    @if (ViewBag.UserName != null)
+    {
+                 <p>Hello, @ViewBag.UserName!</p>
+    }
+    else
+    {
+                 <p>Hello, Guest!</p>
+    }
+
+    @if (ViewBag.UserPreference != null)
+    {
+                 <p>Your preference is: @ViewBag.UserPreference</p>
+    }
+    else
+    {
+                 <p>No preference set.</p>
+    }
+ </div>
+
+ <form asp-action="SetUserName" method="post">
+     <label for="userName">Enter your name:</label>
+     <input type="text" id="userName" name="userName">
+     <button type="submit">Set UserName</button>
+ </form>
+
+ <form asp-action="SetUserPreference" method="post">
+     <label for="preference">Set Preference:</label>
+     <select id="preference" name="preference">
+         <option value="DarkMode">Dark Mode</option>
+         <option value="LightMode">Light Mode</option>
+     </select>
+     <button type="submit">Set Preference</button>
+ </form>
+
